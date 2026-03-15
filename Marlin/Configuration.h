@@ -142,7 +142,7 @@
 // #define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "ICLR FILAMENT WINDER"
+#define CUSTOM_MACHINE_NAME "ICLR FILAMENT WINDER TEST1"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
