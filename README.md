@@ -6,11 +6,10 @@
 
 ## Axis Labels
 
-to be done
-
-## GCODE Definitions
-
-to be done
+#### X - Cross Slide
+#### Y - Cross Feed
+#### I (GCODE 'A') - Mandrel Rotation
+#### J (GCODE 'B') - Payout Head Rotation
 
 
 
