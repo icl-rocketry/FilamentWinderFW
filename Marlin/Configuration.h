@@ -21,6 +21,10 @@
  */
 #pragma once
 
+// pins for J endstop
+
+#define J_MIN_PIN P1_25
+
 /**
  * Configuration.h
  *
@@ -62,7 +66,7 @@
 
 // Author info of this build printed to the host during boot and M115
 #define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
-//#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
+// #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
  * *** VENDORS PLEASE READ ***
@@ -79,16 +83,16 @@
 #define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
-//#define SHOW_CUSTOM_BOOTSCREEN
+// #define SHOW_CUSTOM_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
-//#define CUSTOM_STATUS_SCREEN_IMAGE
+// #define CUSTOM_STATUS_SCREEN_IMAGE
 
 // @section machine
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_SKR_V1_4
+#define MOTHERBOARD BOARD_BTT_SKR_V1_4
 #endif
 
 // @section serial
@@ -116,7 +120,7 @@
  */
 #define BAUDRATE 115200
 
-//#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
+// #define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
@@ -124,25 +128,25 @@
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT_2 0
-//#define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
+// #define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 /**
  * Select a third serial port on the board to use for communication with the host.
  * Currently only supported for AVR, DUE, LPC1768/9 and STM32/STM32F1
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-//#define SERIAL_PORT_3 1
-//#define BAUDRATE_3 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
+// #define SERIAL_PORT_3 1
+// #define BAUDRATE_3 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 // Enable the Bluetooth serial interface on AT90USB devices
-//#define BLUETOOTH
+// #define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
 #define CUSTOM_MACHINE_NAME "ICLR FILAMENT WINDER"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
-//#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+// #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
 
 // @section stepper drivers
 
@@ -171,18 +175,18 @@
 // #define Z4_DRIVER_TYPE A4988
 #define I_DRIVER_TYPE A4988
 #define J_DRIVER_TYPE TMC2209
-//#define K_DRIVER_TYPE  A4988
-//#define U_DRIVER_TYPE  A4988
-//#define V_DRIVER_TYPE  A4988
-//#define W_DRIVER_TYPE  A4988
-//#define E0_DRIVER_TYPE A4988
-//#define E1_DRIVER_TYPE A4988
-//#define E2_DRIVER_TYPE A4988
-//#define E3_DRIVER_TYPE A4988
-//#define E4_DRIVER_TYPE A4988
-//#define E5_DRIVER_TYPE A4988
-//#define E6_DRIVER_TYPE A4988
-//#define E7_DRIVER_TYPE A4988
+// #define K_DRIVER_TYPE  A4988
+// #define U_DRIVER_TYPE  A4988
+// #define V_DRIVER_TYPE  A4988
+// #define W_DRIVER_TYPE  A4988
+// #define E0_DRIVER_TYPE A4988
+// #define E1_DRIVER_TYPE A4988
+// #define E2_DRIVER_TYPE A4988
+// #define E3_DRIVER_TYPE A4988
+// #define E4_DRIVER_TYPE A4988
+// #define E5_DRIVER_TYPE A4988
+// #define E6_DRIVER_TYPE A4988
+// #define E7_DRIVER_TYPE A4988
 
 /**
  * Additional Axis Settings
@@ -202,35 +206,35 @@
  * Regardless of these settings the axes are internally named I, J, K, U, V, W.
  */
 #ifdef I_DRIVER_TYPE
-  #define AXIS4_NAME 'A' // :['A', 'B', 'C', 'U', 'V', 'W']
-  #define AXIS4_ROTATES
+#define AXIS4_NAME 'A' // :['A', 'B', 'C', 'U', 'V', 'W']
+#define AXIS4_ROTATES
 #endif
 #ifdef J_DRIVER_TYPE
-  #define AXIS5_NAME 'B' // :['B', 'C', 'U', 'V', 'W']
-  #define AXIS5_ROTATES
+#define AXIS5_NAME 'B' // :['B', 'C', 'U', 'V', 'W']
+#define AXIS5_ROTATES
 #endif
 #ifdef K_DRIVER_TYPE
-  #define AXIS6_NAME 'C' // :['C', 'U', 'V', 'W']
-  #define AXIS6_ROTATES
+#define AXIS6_NAME 'C' // :['C', 'U', 'V', 'W']
+#define AXIS6_ROTATES
 #endif
 #ifdef U_DRIVER_TYPE
-  #define AXIS7_NAME 'U' // :['U', 'V', 'W']
-  //#define AXIS7_ROTATES
+#define AXIS7_NAME 'U' // :['U', 'V', 'W']
+// #define AXIS7_ROTATES
 #endif
 #ifdef V_DRIVER_TYPE
-  #define AXIS8_NAME 'V' // :['V', 'W']
-  //#define AXIS8_ROTATES
+#define AXIS8_NAME 'V' // :['V', 'W']
+// #define AXIS8_ROTATES
 #endif
 #ifdef W_DRIVER_TYPE
-  #define AXIS9_NAME 'W' // :['W']
-  //#define AXIS9_ROTATES
+#define AXIS9_NAME 'W' // :['W']
+// #define AXIS9_ROTATES
 #endif
 
 // @section extruder
 
 // This defines the number of extruders
 // :[0, 1, 2, 3, 4, 5, 6, 7, 8]
-// #define EXTRUDERS 0
+#define EXTRUDERS 0
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
@@ -877,10 +881,10 @@
  * details can be tuned in Configuration_adv.h
  */
 
-#define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
-#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
-#define THERMAL_PROTECTION_COOLER  // Enable thermal protection for the laser cooling
+// #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
+// #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+// #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
+// #define THERMAL_PROTECTION_COOLER  // Enable thermal protection for the laser cooling
 
 //===========================================================================
 //============================= Mechanical Settings =========================
@@ -1062,8 +1066,8 @@
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
-// #define USE_ZMIN_PLUG
-// #define USE_IMIN_PLUG no endstop on the A Axis
+#define USE_ZMIN_PLUG
+// #define USE_IMIN_PLUG // no endstop on the A Axis so we will trigger a manual home
 #define USE_JMIN_PLUG
 // #define USE_KMIN_PLUG
 // #define USE_UMIN_PLUG
@@ -1196,14 +1200,14 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT {80, 80, 400, 500, 100}
+#define DEFAULT_AXIS_STEPS_PER_UNIT {80, 80, 1, 400, 500}
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE {300, 300, 5, 25, 100}
+#define DEFAULT_MAX_FEEDRATE {300, 300, 1, 5, 25}
 
 // #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1216,7 +1220,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION {3000, 3000, 100, 10000, 100}
+#define DEFAULT_MAX_ACCELERATION {3000, 3000, 1, 100, 10000}
 
 // #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1302,7 +1306,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+// #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 // #define USE_PROBE_FOR_Z_HOMING
@@ -1638,7 +1642,7 @@
 // :{ 0:'Low', 1:'High' }
 #define X_ENABLE_ON 0
 #define Y_ENABLE_ON 0
-// #define Z_ENABLE_ON 0 // No Z axis
+#define Z_ENABLE_ON 0 // No Z axis
 // #define E_ENABLE_ON 0 // For all extruders
 #define I_ENABLE_ON 0
 #define J_ENABLE_ON 0
@@ -1672,7 +1676,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
-// #define INVERT_Z_DIR false
+#define INVERT_Z_DIR false
 #define INVERT_I_DIR false
 #define INVERT_J_DIR false
 // #define INVERT_K_DIR false
@@ -1713,8 +1717,8 @@
 // :[-1,1]
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
-// #define Z_HOME_DIR -1
-// #define I_HOME_DIR -1 // no endstop on I (A) axis
+#define Z_HOME_DIR -1
+#define I_HOME_DIR 0 // no endstop on I (A) axis
 #define J_HOME_DIR -1
 // #define K_HOME_DIR -1
 // #define U_HOME_DIR -1
@@ -1730,7 +1734,7 @@
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
-// #define Z_MIN_POS 0
+#define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 200
@@ -1762,7 +1766,7 @@
 #define MIN_SOFTWARE_ENDSTOP_X
 #define MIN_SOFTWARE_ENDSTOP_Y
 #define MIN_SOFTWARE_ENDSTOP_Z
-// #define MIN_SOFTWARE_ENDSTOP_I // mandrel axis can rotate many times
+#define MIN_SOFTWARE_ENDSTOP_I // mandrel axis can rotate many times
 #define MIN_SOFTWARE_ENDSTOP_J
 #define MIN_SOFTWARE_ENDSTOP_K
 #define MIN_SOFTWARE_ENDSTOP_U
@@ -2108,7 +2112,7 @@
 // #define MANUAL_X_HOME_POS 0
 // #define MANUAL_Y_HOME_POS 0
 // #define MANUAL_Z_HOME_POS 0
-// #define MANUAL_I_HOME_POS 0
+#define MANUAL_I_HOME_POS 0
 // #define MANUAL_J_HOME_POS 0
 // #define MANUAL_K_HOME_POS 0
 // #define MANUAL_U_HOME_POS 0
@@ -2130,7 +2134,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M {(50 * 60), (50 * 60), (4 * 60), (10 * 10)}
+#define HOMING_FEEDRATE_MM_M {(50 * 60), (50 * 60), (1), (4 * 60), (10 * 10)}
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
